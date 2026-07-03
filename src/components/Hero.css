@@ -1,0 +1,171 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrado vertical para equilibrar el espacio */
+    background: white;
+    padding: 20px 80px;
+    box-sizing: border-box;
+}
+
+.hero-left, .hero-right {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-logo {
+    width: 120px;
+    height: auto;
+}
+
+.hero-center {
+    width: 60%;
+    text-align: center;
+}
+
+.hero-center h1 {
+    color: #071f88;
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-escudo {
+    width: 100px;
+    height: auto;
+}
+
+/* =======================
+   CONVOCATORIAS
+========================= */
+.hero-convocatoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #2d6cb5;
+    font-size: 13px;
+    font-weight: bold;
+    transition: transform .3s ease;
+}
+
+.hero-convocatoria img {
+    width: 65px;
+    margin-bottom: 4px;
+}
+
+.hero-convocatoria:hover {
+    transform: scale(1.05);
+}
+
+/* =======================
+   ANIMACIONES COMBINADAS
+========================= */
+.hero-animado-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: moverHorizontal 3s ease-in-out infinite;
+}
+
+/* Enlaces de Reservas */
+.hero-reserva-link {
+    text-decoration: none;
+    color: #071f88;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color .3s;
+}
+
+.hero-reserva-link:hover {
+    color: #e21433;
+}
+
+/* Icono de carga giratorio */
+.spinner-icon {
+    color: #ff0000;
+    font-size: 18px;
+    animation: spin 1.5s linear infinite;
+}
+
+/* Botón Síguenos */
+.btn-siguenos {
+    border: none;
+    background: none;
+    color: #e21433;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+/* Contenedor de botones en serie (horizontal) */
+.redes-wrapper {
+    position: relative;
+    flex-direction: column;
+}
+
+.redes-en-serie {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    background: #f8f9fa;
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.red-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.red-link.fb { color: #3b5998; }
+.red-link.yt { color: #c4302b; }
+
+.red-link:hover {
+    background: #e9ecef;
+}
+
+/* Claves de Animación CSS */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes moverHorizontal {
+    0%, 100% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+}
+
+/* Adaptabilidad Móvil */
+@media (max-width: 1000px) {
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .hero-left, .hero-center, .hero-right {
+        width: 100%;
+    }
+}

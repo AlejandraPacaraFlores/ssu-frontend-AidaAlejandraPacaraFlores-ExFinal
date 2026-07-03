@@ -1,0 +1,83 @@
+/* =========================
+   NAVBAR CONENEDOR
+========================= */
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-top: 3px solid #d71920;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-container {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 50px; /* Ajustado para aproximarse al diseño original */
+}
+
+/* =========================
+   ENLACES Y EFECTOS
+========================= */
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: #1d2951;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 13px 2px;
+    display: inline-block;
+}
+
+/* Hover y Estado Activo comparten el color rojo */
+.nav-link:hover,
+.nav-link.active {
+    color: #d71920;
+}
+
+/* Base de la línea inferior animada */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background: #d71920;
+    transition: width 0.3s ease;
+}
+
+/* La línea se expande al 100% en Hover o si la ruta está activa */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Responsive */
+@media(max-width: 1200px) {
+    .navbar-container {
+        width: 95%;
+        gap: 28px;
+    }
+}
+
+@media(max-width: 900px) {
+    .navbar-container {
+        overflow-x: auto;
+        gap: 22px;
+        scrollbar-width: none;
+    }
+    .navbar-container::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-link {
+        white-space: nowrap;
+        font-size: 15px;
+    }
+}

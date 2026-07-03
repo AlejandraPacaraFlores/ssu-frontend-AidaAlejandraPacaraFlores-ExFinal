@@ -1,0 +1,51 @@
+/* ==========================================
+   RESET GLOBAL Y FUERZA DE PANTALLA COMPLETA
+========================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #111625; /* Fondo oscuro base de la web */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* Evita scrolls horizontales extraños */
+}
+
+/* Contenedor raíz donde React monta la app */
+#root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   ESTRUCTURA DE CONTENEDOR FLEXBOX
+========================================== */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Obliga a que el sitio mida al menos el alto de la pantalla */
+    width: 100%;
+    background-color: #111625;
+}
+
+/* El contenido del medio se expande dinámicamente */
+.main-content {
+    flex: 1; /* Esto estira el contenido y empuja el Footer al fondo de la pantalla */
+    width: 100%;
+    max-width: 100%; /* Permite que las secciones internas ocupen todo el ancho si lo necesitan */
+    margin: 0 auto;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTENEDOR PARA LAS PÁGINAS INTERNAS
+========================================== */
+/* Úsalo en tus textos de las páginas para que no se peguen a los bordes */
+.page-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}

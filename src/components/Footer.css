@@ -1,0 +1,159 @@
+/* ==========================================
+   CONTENEDOR PRINCIPAL DEL FOOTER
+========================================== */
+.footer {
+    width: 100%;
+    background: #111625; /* Fondo oscuro idéntico al original */
+    color: #ffffff;
+    padding: 50px 0 20px 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Columnas individuales */
+.footer-column {
+    width: 50%;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* ESTILOS DE LA COLUMNA DE CONTACTO */
+.footer-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #d1d5db;
+}
+
+.footer-icon {
+    color: #e21433; /* El tono rojo característico de los iconos */
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.email-text {
+    word-break: break-all;
+}
+
+/* ESTILOS DE LA COLUMNA DE SERVICIOS */
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.services-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 50%;
+}
+
+.services-grid li {
+    font-size: 14px;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.services-grid li:hover {
+    color: #ffffff;
+}
+
+/* Clases específicas de la web original */
+.highlighted-service {
+    color: #e21433 !important; /* Texto rojo del menú original */
+}
+
+.bold-service {
+    font-weight: bold;
+    color: #ffffff !important;
+}
+
+/* BARRA DE CRÉDITOS INFERIOR */
+.footer-bottom {
+    width: 100%;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.sub-caption {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.developer-credits {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* RESPONSIVE DESIGN (DISEÑO ADAPTABLE)*/
+
+@media (max-width: 1200px) {
+    .footer-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-column {
+        width: 100%;
+    }
+
+    .services-grid {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .services-grid ul {
+        width: 100%;
+    }
+}
