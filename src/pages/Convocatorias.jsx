@@ -19,7 +19,7 @@ export default function Convocatorias() {
 
   // 1. Cargar las convocatorias desde el Backend
   const cargarConvocatorias = () => {
-    fetch("http://localhost:8080/api/convocatorias")
+    fetch("https://tu-backend-ssu.onrender.com/api/convocatorias")
       .then((res) => {
         if (!res.ok) throw new Error("Error al obtener los datos");
         return res.json();
@@ -56,7 +56,7 @@ export default function Convocatorias() {
       return;
     }
 
-    fetch("http://localhost:8080/api/convocatorias", {
+    fetch("/https://tu-backend-ssu.onrender.com/api/convocatorias", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

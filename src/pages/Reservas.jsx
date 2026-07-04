@@ -36,7 +36,7 @@ export default function Reservas() {
 
     try {
       // Enviamos la petición directa a tu API de Spring Boot
-      const response = await fetch("http://localhost:8080/api/reservas", {
+      const response = await fetch("https://tu-backend-ssu.onrender.com/api/reservas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datosReserva),

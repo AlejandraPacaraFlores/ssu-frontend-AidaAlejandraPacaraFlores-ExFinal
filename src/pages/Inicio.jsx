@@ -13,7 +13,7 @@ export default function Inicio() {
 
   useEffect(() => {
     // Cargar Servicios desde Swagger / API
-    fetch("http://localhost:8080/api/servicios")
+    fetch("https://tu-backend-ssu.onrender.com/api/servicios")
       .then((res) => res.json())
       .then((data) => {
         setServicios(data);
@@ -25,7 +25,7 @@ export default function Inicio() {
       });
 
     // Cargar Noticias desde Swagger / API
-    fetch("http://localhost:8080/api/noticias")
+    fetch("https://tu-backend-ssu.onrender.com/api/noticias")
       .then((res) => res.json())
       .then((data) => {
         setNoticias(data);
