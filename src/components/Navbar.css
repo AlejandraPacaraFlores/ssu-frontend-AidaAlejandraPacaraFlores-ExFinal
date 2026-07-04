@@ -1,83 +1,90 @@
-/* =========================
-   NAVBAR CONENEDOR
-========================= */
 .navbar {
     width: 100%;
-    background: #ffffff;
-    border-top: 3px solid #d71920;
-    border-bottom: 1px solid #e5e5e5;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
-
-.navbar-container {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    height: 50px; /* Ajustado para aproximarse al diseño original */
-}
-
-/* =========================
-   ENLACES Y EFECTOS
-========================= */
-.nav-link {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e21433; /* Línea roja del SSU */
     position: relative;
+    z-index: 100; /* Asegura que el menú flote sobre el contenido */
+}
+
+.navbar-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Enlaces y Títulos de Menús Principales */
+.nav-link, .dropdown-title {
+    display: block;
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #111625;
     text-decoration: none;
-    color: #1d2951;
-    font-size: 16px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    padding: 13px 2px;
-    display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-/* Hover y Estado Activo comparten el color rojo */
-.nav-link:hover,
-.nav-link.active {
-    color: #d71920;
+.nav-link:hover, .dropdown-title:hover {
+    color: #e21433;
 }
 
-/* Base de la línea inferior animada */
-.nav-link::after {
-    content: "";
+/* Marcador activo para saber en qué página estamos */
+.nav-link.active, .dropdown:hover .dropdown-title {
+    color: #e21433;
+    border-bottom: 3px solid #e21433;
+    margin-bottom: -3px; /* Compensa el borde */
+}
+
+/* ==========================================
+   ESTILOS DE LOS MENÚS DESPLEGABLES (DROPDOWNS)
+========================================== */
+.dropdown {
+    position: relative;
+}
+
+/* El contenedor del menú se oculta por defecto */
+.dropdown-menu {
+    display: none;
     position: absolute;
+    top: 100%;
     left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 3px;
-    background: #d71920;
-    transition: width 0.3s ease;
+    background-color: #ffffff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    border-top: 1px solid #f3f4f6;
 }
 
-/* La línea se expande al 100% en Hover o si la ruta está activa */
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
+/* Mostramos el menú cuando el mouse pasa por encima */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
-/* Responsive */
-@media(max-width: 1200px) {
-    .navbar-container {
-        width: 95%;
-        gap: 28px;
-    }
+/* Elementos del menú flotante */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #374151;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-@media(max-width: 900px) {
-    .navbar-container {
-        overflow-x: auto;
-        gap: 22px;
-        scrollbar-width: none;
-    }
-    .navbar-container::-webkit-scrollbar {
-        display: none;
-    }
-    .nav-link {
-        white-space: nowrap;
-        font-size: 15px;
-    }
+/* Efecto hover sobre los subelementos */
+.dropdown-menu li a:hover {
+    background-color: #f3f4f6;
+    color: #e21433;
 }
+
+/* Cambiar estilo cuando un subelemento está seleccionado */
+.dropdown-menu li a.active {
+    font-weight: bold;
+    color: #e21433;
+    background-color: #f9fafb;
+} 

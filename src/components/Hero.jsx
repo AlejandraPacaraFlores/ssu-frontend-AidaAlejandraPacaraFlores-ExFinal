@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; 
 import "./Hero.css";
 import { FaSpinner, FaFacebook, FaYoutube, FaBell } from "react-icons/fa";
 
@@ -11,10 +12,12 @@ function Hero() {
 
   return (
     <section className="hero">
+      {/* Lado izquierdo: Logo principal */}
       <div className="hero-left">
         <img src={logoSSU} alt="Logo SSU" className="hero-logo" />
       </div>
 
+      {/* Centro: Título Institucional */}
       <div className="hero-center">
         <h1>
           SEGURO SOCIAL
@@ -23,30 +26,36 @@ function Hero() {
         </h1>
       </div>
 
+      {/* Lado derecho: Escudo y enlaces */}
       <div className="hero-right">
         <img src={escudo} className="hero-escudo" alt="Escudo de Bolivia" />
 
-        {/* Convocatorias - Abre en pestaña nueva */}
-        <a
-          href="https://ssupotosi.com.bo/convocatorias"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Bloque Convocatorias - ¡MODIFICADO CON target="_blank"! */}
+        <Link 
+          to="/convocatorias" 
           className="hero-convocatoria"
+          target="_blank" 
+          rel="noopener noreferrer"
         >
           <img src={convocatoria} alt="Icono Convocatorias" />
           <span>CONVOCATORIAS</span>
-        </a>
+        </Link>
 
-        {/* Bloque Reservas Animado */}
+        {/* Bloque Reservas Animado - ¡MODIFICADO CON target="_blank"! */}
         <div className="hero-animado-container">
           <FaSpinner className="spinner-icon" />
-          <a href="#reservas" className="hero-reserva-link">
+          <Link 
+            to="/servicios/fichaje" 
+            className="hero-reserva-link"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
             Reservas
-          </a>
+          </Link>
         </div>
 
-        {/* Bloque Síguenos Animado con Menú en Serie */}
-        <div className="hero-animado-container redes-wrapper">
+        {/* Bloque Síguenos */}
+        <div className="redes-wrapper">
           <button 
             className="btn-siguenos" 
             onClick={() => setMostrarRedes(!mostrarRedes)}
