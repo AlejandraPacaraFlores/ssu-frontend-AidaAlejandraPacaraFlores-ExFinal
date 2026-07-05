@@ -11,7 +11,7 @@ export default function Convocatorias() {
     titulo: "",
     descripcion: "",
     fecha: new Date().toISOString().split("T")[0], // Fecha actual por defecto
-    archivo: "", // Aquí se guardará directamente el enlace URL de texto
+    archivo: "", // Aquí se guardará directamente el enlace URL de texto real
     estado: 1 // 1 = Activo / Vigente
   });
 
@@ -19,7 +19,7 @@ export default function Convocatorias() {
 
   // 1. Cargar las convocatorias desde el Backend
   const cargarConvocatorias = () => {
-    fetch("https://tu-backend-ssu.onrender.com/api/convocatorias")
+    fetch("https://ssu-backend-aidaalejandrapacaraflores.onrender.com/api/convocatorias")
       .then((res) => {
         if (!res.ok) throw new Error("Error al obtener los datos");
         return res.json();
@@ -38,7 +38,7 @@ export default function Convocatorias() {
     cargarConvocatorias();
   }, []);
 
-  // 2. Manejar cambios en todos los inputs de texto, fecha, select
+  // 2. Manejar cambios en los inputs de texto, fecha, select y enlace
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -47,7 +47,17 @@ export default function Convocatorias() {
     });
   };
 
-  // 3. Enviar los datos mediante POST a tu API (JSON simple)
+  // LÓGICA DE APERTURA DE ENLACES
+  const handleVerDocumento = (e, archivoString, titulo) => {
+    e.preventDefault(); 
+    if (!archivoString) return;
+
+    // Abre cualquier enlace HTTP/HTTPS real en una pestaña nueva de forma segura
+    const urlCompleta = archivoString.startsWith("http") ? archivoString : `https://${archivoString}`;
+    window.open(urlCompleta, "_blank", "noopener,noreferrer");
+  };
+
+  // 3. Enviar los datos mediante POST a tu API
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -56,7 +66,7 @@ export default function Convocatorias() {
       return;
     }
 
-    fetch("/https://tu-backend-ssu.onrender.com/api/convocatorias", {
+    fetch("https://ssu-backend-aidaalejandrapacaraflores.onrender.com/api/convocatorias", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -70,7 +80,7 @@ export default function Convocatorias() {
       .then((data) => {
         setMensaje({ texto: "¡Convocatoria registrada exitosamente!", tipo: "exito" });
         
-        // Limpiar formulario restableciendo valores
+        // Limpiar formulario restableciendo valores nativos
         setFormData({
           titulo: "",
           descripcion: "",
@@ -79,7 +89,6 @@ export default function Convocatorias() {
           estado: 1
         });
 
-        // Recargar la lista automáticamente para ver los cambios
         cargarConvocatorias();
       })
       .catch((err) => {
@@ -91,7 +100,6 @@ export default function Convocatorias() {
   return (
     <div className="convocatorias-page-container">
       
-      {/* Encabezado Estilo SSU Institucional */}
       <div className="convocatorias-header">
         <h1>CONVOCATORIAS - 2026</h1>
         <div className="linea-decorativa"></div>
@@ -147,15 +155,14 @@ export default function Convocatorias() {
                 />
               </div>
 
-              {/* ENLACE DIRECTO: Campo de texto optimizado para pegar la URL del documento */}
               <div className="form-group">
-                <label>Enlace / URL del Documento (PDF)</label>
+                <label>Enlace URL del Documento (PDF)</label>
                 <input
                   type="text"
                   name="archivo"
                   value={formData.archivo}
                   onChange={handleInputChange}
-                  placeholder="Ej. https://drive.google.com/..."
+                  placeholder="Ej. https://drive.google.com/... o enlace de Dropbox"
                 />
               </div>
             </div>
@@ -205,9 +212,8 @@ export default function Convocatorias() {
                     <span className="fecha-badge">📅 Publicado el: {conv.fecha}</span>
                     {conv.archivo && (
                       <a 
-                        href={conv.archivo.startsWith("http") ? conv.archivo : `https://${conv.archivo}`} 
-                        target="_blank" 
-                        rel="noreferrer" 
+                        href="#documento"
+                        onClick={(e) => handleVerDocumento(e, conv.archivo, conv.titulo)}
                         className="download-link-btn"
                       >
                         📂 Ver Documento PDF

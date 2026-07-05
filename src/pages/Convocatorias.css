@@ -91,39 +91,9 @@
   transition: border-color 0.2s;
 }
 
-/* Estilos específicos para el botón nativo de subir archivos */
-.form-ssu input[type="file"].file-input-custom {
-  width: 100%;
-  padding: 6px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 4px;
-  font-size: 13px;
-  color: #1f2937;
-  background-color: #f8fafc;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.form-ssu input[type="file"].file-input-custom::file-selector-button {
-  background-color: #0b1c54;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: background-color 0.2s;
-}
-
-.form-ssu input[type="file"].file-input-custom::file-selector-button:hover {
-  background-color: #1a2e72;
-}
-
 .form-ssu input:focus, 
 .form-ssu textarea:focus, 
-.form-ssu select:focus,
-.form-ssu input[type="file"].file-input-custom:focus {
+.form-ssu select:focus {
   outline: none;
   border-color: #0b1c54;
 }
