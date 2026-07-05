@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // ◄ CAMBIADO A HashRouter
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
@@ -9,7 +9,7 @@ import "./App.css";
 import Inicio from "./pages/Inicio"; 
 import Convocatorias from "./pages/Convocatorias"; 
 import Reservas from "./pages/Reservas"; 
-import Institucional from "./pages/Institucional"; // <-- ¡IMPORTAMOS TU NUEVA PÁGINA REAL!
+import Institucional from "./pages/Institucional"; 
 
 // Componentes temporales limpios restantes
 const Servicios = () => <div className="page-body" style={{ padding: "40px", textAlign: "center" }}><h2>Nuestros Servicios Médicos</h2></div>;
