@@ -1,5 +1,6 @@
 import "./Header.css";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCalendarCheck } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Importamos Link para la navegación
 
 function Header() {
   return (
@@ -21,6 +22,14 @@ function Header() {
         <div className="top-item">
           <FaMapMarkerAlt />
           <span>Calle Calama Nº 107</span>
+        </div>
+
+        {/* BOTÓN DE RESERVAS / FICHAJE */}
+        <div className="top-item header-reservas">
+          <Link to="/servicios/fichaje" className="btn-fichaje">
+            <FaCalendarCheck style={{ marginRight: '5px' }} />
+            <span>Reservas / Fichaje</span>
+          </Link>
         </div>
 
       </div>

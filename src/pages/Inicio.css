@@ -1,0 +1,266 @@
+.inicio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden; /* Evita desbordamiento de los carriles */
+}
+
+/* Encabezados y Títulos */
+.novedades-section h2, .section-title-line {
+  color: #0b1c54;
+  font-size: 24px;
+  border-bottom: 3px solid #e21433;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.highlight-red {
+  color: #e21433;
+  text-decoration: underline;
+}
+
+/* --- MOTOR DEL CARRUSEL CSS AUTOMÁTICO --- */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 15px 0;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+}
+
+/* Animaciones fluidas hacia la izquierda */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 10px)); } 
+}
+
+/* Aplicación de tiempos de movimiento a cada track */
+.track-accesos {
+  animation: scrollLeft 25s linear infinite;
+}
+.track-accesos:hover, .track-noticias:hover, .track-autoridades:hover, .track-servicios:hover {
+  animation-play-state: paused; /* Se congela si el usuario pasa el mouse encima */
+}
+
+.track-noticias { animation: scrollLeft 30s linear infinite; }
+.track-autoridades { animation: scrollLeft 28s linear infinite; }
+.track-servicios { animation: scrollLeft 32s linear infinite; }
+
+/* 1. Tarjetas de Novedades (Ancho exacto para que entren 4 cómodamente en el contenedor) */
+.banner-card {
+  width: 270px;
+  padding: 22px 18px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.b-red { background: linear-gradient(135deg, #e21433 0%, #a80f26 100%); }
+.b-blue { background: linear-gradient(135deg, #0b1c54 0%, #17328c 100%); }
+.b-dark { background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); }
+
+.banner-card h3 { 
+    margin: 0 0 6px 0; 
+    font-size: 15px; 
+    font-weight: 700; 
+    letter-spacing: 0.3px; }
+.banner-card p { 
+    margin: 0; 
+    font-size: 12px; 
+    opacity: 0.85; }
+
+/* 2. Tarjetas de Noticias / Informes */
+.noticia-card-api {
+  width: 280px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+
+.noticia-img-placeholder {
+  height: 140px;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.noticia-body { padding: 15px; }
+.noticia-tag { 
+    background: #e21433; 
+    color: white; 
+    font-size: 10px; 
+    padding: 2px 6px; 
+    border-radius: 10px; 
+    display: inline-block; 
+    margin-bottom: 6px; 
+    font-weight: bold; 
+}
+.noticia-card-api h3 { 
+    margin: 0 0 6px 0; 
+    color: #0b1c54; 
+    font-size: 16px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+.noticia-card-api p { 
+    color: #4b5563; 
+    font-size: 13px; 
+    line-height: 1.4; 
+    margin: 0 0 10px 0; 
+    height: 38px; 
+    overflow: hidden; 
+}
+.noticia-fecha { 
+    font-size: 11px; 
+    color: #9ca3af; 
+}
+
+/* 3. Barra Institucional y Médicos */
+.autoridades-barra-roja {
+  background-color: #e21433;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.autoridades-barra-roja p { 
+    margin: 4px 0 0 0; 
+    font-size: 13px; 
+    opacity: 0.9; 
+}
+
+.medico-card {
+  width: 220px;
+  background: white;
+  border-radius: 6px;
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+.border-blue { border-top: 5px solid #0b1c54; }
+
+.medico-avatar-placeholder {
+  width: 60px;
+  height: 60px;
+  background-color: #f1f5f9;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 12px auto;
+}
+.medico-card h4 { 
+    margin: 0 0 4px 0; 
+    color: #1f2937; 
+    font-size: 14px; 
+}
+.medico-card p { 
+  margin: 0;
+  color: #6b7280; 
+  font-size: 12px; 
+  font-weight: 600; 
+}
+
+/* 4. Tarjetas de Especialidades de la API (Estilo Rectangular Grande) */
+.servicio-item-api {
+  width: 320px; /* Agrandado estratégicamente para evitar desbordamientos */
+  display: flex;
+  flex-direction: column; /* Apila la imagen arriba y la descripción abajo */
+  background-color: #ffffff; /* Fondo blanco puro para contraste total */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden; /* Recorta la imagen limpiamente en los bordes superiores */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Impide que el carrusel encoja la tarjeta */
+}
+
+/* Imagen rectangular adaptada para ocupar el 100% superior */
+.servicio-img-renderizada {
+  width: 100%;
+  height: 190px; /* Altura idéntica al diseño de tu referencia */
+  object-fit: cover; /* Mantiene la escala de la foto sin distorsionarla */
+  display: block;
+}
+
+/* Icono alternativo en caso de que un registro no contenga foto */
+.servicio-icon { 
+  width: 100%;
+  height: 190px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+/* Contenedor de textos con su respectivo relleno */
+.servicio-detalles {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.servicio-detalles h4 { 
+  margin: 0; 
+  color: #0b1c54; /* Tu azul oscuro corporativo */
+  font-size: 16px; 
+  font-weight: 700;
+  text-transform: uppercase; /* Fuerza las mayúsculas como en la imagen de muestra */
+  letter-spacing: 0.5px;
+}
+
+.servicio-detalles p { 
+  margin: 0; 
+  color: #4b5563; 
+  font-size: 13px; 
+  line-height: 1.4;
+  white-space: normal; /* Permite saltos de línea fluidos dentro del recuadro */
+  
+  /* Limita inteligentemente el texto largo a 2 líneas agregando "..." al final */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.empty-api-notice {
+  background-color: #f3f4f6;
+  border-left: 5px solid #3b82f6;
+  padding: 15px;
+  color: #4b5563;
+}
+
+.noticia-img-renderizada {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: block;
+}
